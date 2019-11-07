@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+   <modelVersion>4.0.0</modelVersion>
+   <groupId>com.datarobot</groupId>
+   <artifactId>postgres-scoring</artifactId>
+   <packaging>jar</packaging>
+   <version>0.1.0</version>
+   <dependencies>
+     <!-- <dependency>
+        <groupId>com.datarobot</groupId>
+        <artifactId>5d5da72a3fa59e2850f824fc</artifactId>
+        <version>1.0.0</version>
+     </dependency> -->
+     <dependency>
+         <groupId>junit</groupId>
+         <artifactId>junit</artifactId>
+         <version>4.4</version>
+         <scope>test</scope>
+     </dependency>
+      <dependency>
+         <groupId>com.datarobot</groupId>
+         <artifactId>datarobot-prediction</artifactId>
+         <version>2.0.14</version>
+      </dependency>
+      <!-- <dependency>
+         <groupId>com.datarobot</groupId>
+         <artifactId>datarobot-transform</artifactId>
+         <version>1.0.3</version>
+      </dependency> -->
+
+      <dependency>
+        <groupId>org.postgresql</groupId>
+        <artifactId>pljava-api</artifactId>
+        <version>1.5.2</version>
+      </dependency>
+   </dependencies>
+   <!-- mvn install:install-file -Dfile=5cdab64d2153872de37697c1.jar -DartifactId=5cdab64d2153872de37697c1 -DgroupId=com.datarobot -Dversion=1.0.0 -Dpackaging=jar -->
+   <properties>
+      <maven.compiler.source>1.8</maven.compiler.source>
+      <maven.compiler.target>1.8</maven.compiler.target>
+   </properties>
+   <build>
+      <plugins>
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-assembly-plugin</artifactId>
+            <version>3.1.0</version>
+            <configuration>
+               <finalName>scoring</finalName>
+               <descriptors>
+                  <descriptor>src/assembly/assembly.xml</descriptor>
+               </descriptors>
+               <appendAssemblyId>true</appendAssemblyId>
+            </configuration>
+            <executions>
+               <execution>
+                  <id>make-assembly</id>
+                  <phase>package</phase>
+                  <goals>
+                     <goal>single</goal>
+                  </goals>
+               </execution>
+            </executions>
+         </plugin>
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-shade-plugin</artifactId>
+            <version>2.1</version>
+            <executions>
+               <execution>
+                  <phase>package</phase>
+                  <goals>
+                     <goal>shade</goal>
+                  </goals>
+                  <configuration>
+                     <transformers>
+                        <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                           <mainClass>hello.HelloWorld</mainClass>
+                        </transformer>
+                     </transformers>
+                  </configuration>
+               </execution>
+            </executions>
+         </plugin>
+      </plugins>
+   </build>
+</project>

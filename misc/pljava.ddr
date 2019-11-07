@@ -1,0 +1,98 @@
+SQLActions[]={
+"BEGIN INSTALL
+BEGIN PostgreSQL
+CREATE OR REPLACE FUNCTION hello(
+	toWhom pg_catalog.varchar)
+	RETURNS pg_catalog.varchar
+	LANGUAGE java VOLATILE
+	AS 'java.lang.String=com.datarobot.java.Scoring.hello(java.lang.String)'
+END PostgreSQL;
+BEGIN PostgreSQL
+CREATE OR REPLACE FUNCTION score(
+	application_id integer,
+	loan_amnt integer,
+	funded_amnt integer,
+	term pg_catalog.varchar,
+	int_rate pg_catalog.varchar,
+	int_rate_1 pg_catalog.varchar,
+	installment double precision,
+	grade pg_catalog.varchar,
+	sub_grade pg_catalog.varchar,
+	emp_title pg_catalog.varchar,
+	emp_length pg_catalog.varchar,
+	home_ownership pg_catalog.varchar,
+	annual_inc pg_catalog.varchar,
+	verification_status pg_catalog.varchar,
+	pymnt_plan pg_catalog.varchar,
+	url pg_catalog.varchar,
+	description pg_catalog.varchar,
+	purpose pg_catalog.varchar,
+	title pg_catalog.varchar,
+	zip_code pg_catalog.varchar,
+	addr_state pg_catalog.varchar,
+	dti double precision,
+	delinq_2yrs pg_catalog.varchar,
+	earliest_cr_line pg_catalog.varchar,
+	inq_last_6mths pg_catalog.varchar,
+	mths_since_last_delinq pg_catalog.varchar,
+	mths_since_last_record pg_catalog.varchar,
+	open_acc pg_catalog.varchar,
+	pub_rec pg_catalog.varchar,
+	revol_bal integer,
+	revol_util pg_catalog.varchar,
+	total_acc pg_catalog.varchar,
+	initial_list_status pg_catalog.varchar,
+	mths_since_last_major_derog pg_catalog.varchar,
+	policy_code integer,
+	is_bad integer)
+	RETURNS double precision
+	LANGUAGE java VOLATILE
+	AS 'double=com.datarobot.java.Scoring.score(int,int,int,java.lang.String,java.lang.String,java.lang.String,double,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,double,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,int,java.lang.String,java.lang.String,java.lang.String,java.lang.String,int,int)'
+END PostgreSQL;
+END INSTALL",
+"BEGIN REMOVE
+BEGIN PostgreSQL
+DROP FUNCTION hello(
+	toWhom pg_catalog.varchar)
+END PostgreSQL;
+BEGIN PostgreSQL
+DROP FUNCTION score(
+	application_id integer,
+	loan_amnt integer,
+	funded_amnt integer,
+	term pg_catalog.varchar,
+	int_rate pg_catalog.varchar,
+	int_rate_1 pg_catalog.varchar,
+	installment double precision,
+	grade pg_catalog.varchar,
+	sub_grade pg_catalog.varchar,
+	emp_title pg_catalog.varchar,
+	emp_length pg_catalog.varchar,
+	home_ownership pg_catalog.varchar,
+	annual_inc pg_catalog.varchar,
+	verification_status pg_catalog.varchar,
+	pymnt_plan pg_catalog.varchar,
+	url pg_catalog.varchar,
+	description pg_catalog.varchar,
+	purpose pg_catalog.varchar,
+	title pg_catalog.varchar,
+	zip_code pg_catalog.varchar,
+	addr_state pg_catalog.varchar,
+	dti double precision,
+	delinq_2yrs pg_catalog.varchar,
+	earliest_cr_line pg_catalog.varchar,
+	inq_last_6mths pg_catalog.varchar,
+	mths_since_last_delinq pg_catalog.varchar,
+	mths_since_last_record pg_catalog.varchar,
+	open_acc pg_catalog.varchar,
+	pub_rec pg_catalog.varchar,
+	revol_bal integer,
+	revol_util pg_catalog.varchar,
+	total_acc pg_catalog.varchar,
+	initial_list_status pg_catalog.varchar,
+	mths_since_last_major_derog pg_catalog.varchar,
+	policy_code integer,
+	is_bad integer)
+END PostgreSQL;
+END REMOVE"
+}
