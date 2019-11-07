@@ -1,18 +1,14 @@
 package com.datarobot.java;
 //https://app.datarobot.com/docs/users-guide/predictions/pred-options/scoring-code/java-back-compat.html
-import com.datarobot.prediction.IPredictorInfo;
+// import com.datarobot.prediction.IPredictorInfo;
 // import com.datarobot.prediction.IRegressionPredictor;
 import com.datarobot.prediction.IClassificationPredictor;
 import com.datarobot.prediction.Predictors;
 import java.util.HashMap;
 import java.util.Map;
-// import java.io.File;
-// import java.net.MalformedURLException;
-// import java.net.URL;
-// import java.net.URLClassLoader;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+// import java.util.ArrayList;
+// import java.util.Iterator;
+// import java.util.List;
 import org.postgresql.pljava.annotation.Function;
 import java.lang.Thread;
 
@@ -108,8 +104,8 @@ public class Scoring {
     // // get a classification predictor object given model
     // IClassificationPredictor predictor = Predictors.getPredictor(classLoader);
     // Map<String, Double> class_probabilities = predictor.score(row);
-
     //  get a classification predictor object given model
+
    Map<String, Double> class_probabilities = predictor.score(row);
 
    return class_probabilities.get("1");
