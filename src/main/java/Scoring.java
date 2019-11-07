@@ -1,16 +1,11 @@
 package com.datarobot.java;
-//https://app.datarobot.com/docs/users-guide/predictions/pred-options/scoring-code/java-back-compat.html
 // import com.datarobot.prediction.IPredictorInfo;
 // import com.datarobot.prediction.IRegressionPredictor;
 import com.datarobot.prediction.IClassificationPredictor;
 import com.datarobot.prediction.Predictors;
 import java.util.HashMap;
 import java.util.Map;
-// import java.util.ArrayList;
-// import java.util.Iterator;
-// import java.util.List;
 import org.postgresql.pljava.annotation.Function;
-import java.lang.Thread;
 
 public class Scoring {
 
