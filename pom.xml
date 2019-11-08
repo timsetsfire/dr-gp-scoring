@@ -6,6 +6,8 @@
    <packaging>jar</packaging>
    <version>0.1.0</version>
    <dependencies>
+     <!-- should have installed locally to include as dependency -->
+     <!-- mvn install:install-file -Dfile=5cdab64d2153872de37697c1.jar -DartifactId=5cdab64d2153872de37697c1 -DgroupId=com.datarobot -Dversion=1.0.0 -Dpackaging=jar -->
      <!-- <dependency>
         <groupId>com.datarobot</groupId>
         <artifactId>5d5da72a3fa59e2850f824fc</artifactId>
@@ -34,7 +36,7 @@
         <version>1.5.2</version>
       </dependency>
    </dependencies>
-   <!-- mvn install:install-file -Dfile=5cdab64d2153872de37697c1.jar -DartifactId=5cdab64d2153872de37697c1 -DgroupId=com.datarobot -Dversion=1.0.0 -Dpackaging=jar -->
+
    <properties>
       <maven.compiler.source>1.8</maven.compiler.source>
       <maven.compiler.target>1.8</maven.compiler.target>

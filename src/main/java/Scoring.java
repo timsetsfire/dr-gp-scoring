@@ -102,7 +102,6 @@ public class Scoring {
     //  get a classification predictor object given model
 
    Map<String, Double> class_probabilities = predictor.score(row);
-
    return class_probabilities.get("1");
 
   }
