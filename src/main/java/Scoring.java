@@ -4,17 +4,32 @@ package com.datarobot.java;
 import com.datarobot.prediction.IClassificationPredictor;
 import com.datarobot.prediction.Predictors;
 import java.util.HashMap;
-import java.util.Map;
 import org.postgresql.pljava.annotation.Function;
+
+import java.util.Iterator;
+import java.util.ArrayList;
+import java.util.Map;
 
 public class Scoring {
 
   static IClassificationPredictor predictor = Predictors.getPredictor("5d5da72a3fa59e2850f824fc");
 
   @Function
-  public static String hello(String toWhom) {
-    return "Hello, " + toWhom + "!";
+  public static String modelId() {
+    return predictor.getModelId();
   }
+
+  @Function
+ public static Iterator<String> getEnvs()
+ {
+
+     Map<String, String> env = System.getenv();
+     ArrayList<String> vars = new ArrayList<>();
+     for (Map.Entry<String, String> entry : env.entrySet()) {
+            vars.add(entry.getKey() + " : " + entry.getValue());
+     }
+     return vars.iterator();
+ }
 
  @Function
  public static double score(
@@ -92,14 +107,6 @@ public class Scoring {
     row.put("initial_list_status",initial_list_status);
     row.put("mths_since_last_major_derog",mths_since_last_major_derog);
     row.put("policy_code", Integer.toString(policy_code));
-
-    // String pathToModels = "/Users/timothy.whittaker/Desktop/sbt-projects/scoring/models";
-    // URL[] model = new URL[]{new URL("file:///Users/timothy.whittaker/Desktop/sbt-projects/scoring/models/5d5da72a3fa59e2850f824fc.jar")};
-    // URLClassLoader classLoader = URLClassLoader.newInstance(model, Thread.currentThread().getContextClassLoader());
-    // // get a classification predictor object given model
-    // IClassificationPredictor predictor = Predictors.getPredictor(classLoader);
-    // Map<String, Double> class_probabilities = predictor.score(row);
-    //  get a classification predictor object given model
 
    Map<String, Double> class_probabilities = predictor.score(row);
    return class_probabilities.get("1");
